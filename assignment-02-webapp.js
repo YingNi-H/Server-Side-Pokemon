@@ -22,6 +22,8 @@ app.get("/", function (req, res) {
 });
 
 // TODO Add the web-service.js router here.
+const webService = require("./routes/web-service.js");
+app.use(webService);
 
 // TODO Add your Task Two router here.
 
