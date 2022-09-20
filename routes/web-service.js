@@ -9,9 +9,11 @@ const router = express.Router();
 // TODO Add your route handlers here
 //Get a pokemon by id
 router.get("/services/pokemon", function(req, res){
-    const pokemonId = parseInt(req.query);
+    const pokemonId = parseInt(req.query.id);
+    console.log(`parseInt(req.query.id):${parseInt(req.query.id)}`);
     // res.locals.pokemonId;
     const pokemonById = pokemonDb.getPokemonById(pokemonId);
+    res.json(pokemonById);
 
 
 });
@@ -20,6 +22,7 @@ router.get("/services/pokemon", function(req, res){
 router.get("/services/pokemon/types", function(req, res){
     // const pokemonType = req.query.types;
     const typeData = pokemonDb.getTypeData();
+    res.json(typeData);
 
 });
 
@@ -27,6 +30,7 @@ router.get("/services/pokemon/types", function(req, res){
 router.get("/services/pokemon/random", function(req, res){
     const index = randomNum();
     const pokemonRandom = pokemonDb.getPokemonByArrayIndex(index);
+    res.json(pokemonRandom);
 
 });
 
