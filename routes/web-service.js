@@ -11,9 +11,6 @@ const router = express.Router();
 router.get("/services/pokemon", function(req, res){
     const pokemonId = parseInt(req.query.id);
     console.log(`parseInt(req.query.id):${parseInt(req.query.id)}`);
-    // res.locals.pokemonId;
-
-    // pokemonDb.getPokemonById(pokemonId); Not work coz need to store the pokemon in a json and shows in page
     
     const pokemonById = pokemonDb.getPokemonById(pokemonId);
     res.json(pokemonById);
@@ -25,7 +22,7 @@ router.get("/services/pokemon", function(req, res){
 
 //Get the type effectiveness data
 router.get("/services/pokemon/types", function(req, res){
-    // const pokemonType = req.query.types;
+    
     console.log(`req.query.types: ${req.query.types}`);
     const typeData = pokemonDb.getTypeData();
     res.json(typeData);
