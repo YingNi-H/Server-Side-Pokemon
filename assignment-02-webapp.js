@@ -26,6 +26,8 @@ const webService = require("./routes/web-service.js");
 app.use(webService);
 
 // TODO Add your Task Two router here.
+const admin = require("./routes/admin.js");
+app.use(admin);
 
 
 // Start the server running. Once the server is running, the given function will be called, which will
