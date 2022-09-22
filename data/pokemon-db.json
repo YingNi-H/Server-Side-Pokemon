@@ -93,5 +93,16 @@
             "Psychic"
         ],
         "description": "It was created by a scientist after years of horrific gene-splicing and DNA-engineering experiments."
+    },
+    {
+        "id": 200,
+        "name": "chuchu",
+        "imageUrl": "210226041421-02-pokemon-anniversary-design-full-169.jpeg",
+        "description": "A new breed with multiple powers and super intelligence",
+        "types": [
+            "Normal",
+            "Electric",
+            "Psychic"
+        ]
     }
 ]

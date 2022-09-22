@@ -2,7 +2,8 @@ const { application } = require("express");
 const express = require("express");
 const pokemonDb = require("../modules/pokemon-db.js");
 const makeArray = require("../modules/make-array.js");
-// const multerUploader = require("../modules/multer-uploader.js");
+// Setup multer (files will temporarily be saved in the "temp" folder).
+const multerUploader = require("../modules/multer-uploader.js");
 
 
 // Setup an express Router
@@ -35,15 +36,11 @@ const fs = require("fs");
 // Setup body-parser
 router.use(express.urlencoded({ extended: false }));
 
-// Setup multer (files will temporarily be saved in the "temp" folder).
-const path = require("path");
-const multer = require("multer");
-const upload = multer({
-    dest: path.join(__dirname, "temp")
-});
+
+
 
 //Access to client submission
-router.post("/newPokemon", upload.single("imageFile"), function(req, res){
+router.post("/newPokemon", multerUploader.single("imageFile"), function(req, res){
 
     // Move the file somewhere more sensible
     const fileInfo = req.file;
