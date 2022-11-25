@@ -37,8 +37,6 @@ const fs = require("fs");
 router.use(express.urlencoded({ extended: false }));
 
 
-
-
 //Access to client submission
 router.post("/newPokemon", multerUploader.single("imageFile"), function(req, res){
 

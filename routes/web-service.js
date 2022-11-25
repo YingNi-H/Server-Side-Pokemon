@@ -1,5 +1,4 @@
 // Importing required modules
-const { application } = require("express");
 const express = require("express");
 const pokemonDb = require("../modules/pokemon-db.js");
 
@@ -11,18 +10,13 @@ const router = express.Router();
 router.get("/services/pokemon", function(req, res){
     const pokemonId = parseInt(req.query.id);
     console.log(`parseInt(req.query.id):${parseInt(req.query.id)}`);
-    
     const pokemonById = pokemonDb.getPokemonById(pokemonId);
     res.json(pokemonById);
     
-    
-
-
 });
 
 //Get the type effectiveness data
 router.get("/services/pokemon/types", function(req, res){
-    
     console.log(`req.query.types: ${req.query.types}`);
     const typeData = pokemonDb.getTypeData();
     res.json(typeData);
